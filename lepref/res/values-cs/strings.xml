@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Battery -->
+    <string name="lepref_title">Rozšíření LeEco</string>
+    <string name="battery_settings_title">Baterie</string>
+    <string name="qc_title">Rychlé nabíjení</string>
+    <string name="qc_summary">Zapnout/vypnout rychlé nabíjení</string>
+     
+</resources>
