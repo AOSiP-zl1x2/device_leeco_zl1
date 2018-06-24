@@ -21,8 +21,9 @@ LOCAL_SHARED_LIBRARIES := \
 
 LOCAL_SRC_FILES := fakeprint/fakeprint.cpp
 
-#LOCAL_C_INCLUDES := \
-    system/core/liblog
+LOCAL_SRC_FILES := fakelogprint/fakelogprint.cpp
+
+LOCAL_MODULE := fakelogprint
 
 LOCAL_MODULE := fakelg
 LOCAL_MODULE_TAGS := optional

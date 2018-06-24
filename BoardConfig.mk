@@ -59,7 +59,7 @@ BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/lineagehw
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Shims
-TARGET_LD_SHIM_LIBS += :/system/lib64/libfp_client5118m.so|fakelg.so:/system/lib64/hw/gxfingerprint5118m.default.so|fakelg.so:/system/lib64/hw/fingerprint.vendor.msm8996.so|fakelg.so:/system/lib64/libfpservice5118m.so|fakelg.so:/system/bin/gx_fpd|fakelg.so
+TARGET_LD_SHIM_LIBS += :/system/lib64/hw/gxfingerprint5118m.default.so|fakelogprint.so:/system/lib64/hw/fingerprint.vendor.msm8996.so|fakelogprint.so:/system/bin/gx_fpd|fakelogprint.so
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
