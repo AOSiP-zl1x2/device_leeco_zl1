@@ -9,10 +9,5 @@
             android:defaultValue="false"
             android:title="@string/qc_title"
             android:summary="@string/qc_summary" />
-        <SwitchPreference
-            android:key="battery_mode"
-            android:defaultValue="false"
-            android:title="@string/battery_title"
-            android:summary="@string/battery_summary" />
-  </PreferenceCategory>
+    </PreferenceCategory>
 </PreferenceScreen>

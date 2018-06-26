@@ -3,6 +3,7 @@
  *  Made by @andr68rus 2017
  *  Updated and cleaned up by Gabr0 2018
  *  Moderniced it by kihope
+ *  [ 20180626 | @RyanCasas ] clean-up & fix identation
  */
 
 package com.lineageos.settings.lepref;
@@ -31,12 +32,9 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private static final boolean DEBUG = false;
 	private static final String TAG = "LePref";
 	private static final String ENABLE_QC_KEY = "qc_setting";
-	//private static final String ENABLE_BATTERY_MODE = "battery_mode";
 	private static final String QC_SYSTEM_PROPERTY = "persist.sys.le_fast_chrg_enable";
-	//private static final String BATTERY_SYSTEM_PROPERTY = "persist.battery.save";
 
 	private SwitchPreference mEnableQC;
-	//private SwitchPreference mBatterySave;
 
     private Context mContext;
     private SharedPreferences mPreferences;
@@ -50,26 +48,13 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
         mEnableQC = (SwitchPreference) findPreference(ENABLE_QC_KEY);
         mEnableQC.setChecked(SystemProperties.getBoolean(QC_SYSTEM_PROPERTY, false));
         mEnableQC.setOnPreferenceChangeListener(this);
-
-				/*mBatterySave = (SwitchPreference) findPreference(ENABLE_BATTERY_MODE);
-				mBatterySave.setChecked(SystemProperties.getBoolean(BATTERY_SYSTEM_PROPERTY, true));
-				mBatterySave.setOnPreferenceChangeListener(this);*/
-			}
+	}
+	
 	// Control Quick Charge
     private void setEnableQC(boolean value) {
-		if(value) {
-			SystemProperties.set(QC_SYSTEM_PROPERTY, "1");
-		} else {
-			SystemProperties.set(QC_SYSTEM_PROPERTY, "0");
-		}
+		SystemProperties.set(QC_SYSTEM_PROPERTY, value?"1":"0");
     }
-		/*private void setBatterySave(boolean value) {
-		if(value) {
-			SystemProperties.set(BATTERY_SYSTEM_PROPERTY, "1");
-		} else {
-			SystemProperties.set(BATTERY_SYSTEM_PROPERTY, "0");
-		}
-	}*/
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -88,20 +73,15 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         final String key = preference.getKey();
         boolean value;
-        String strvalue;
+
         if (ENABLE_QC_KEY.equals(key)) {
 			value = (Boolean) newValue;
 			mEnableQC.setChecked(value);
 			setEnableQC(value);
 			return true;
 		}
-		/*if (ENABLE_BATTERY_MODE.equals(key)) {
-			value = (Boolean) newValue;
-			mBatterySave.setChecked(value);
-			setBatterySave(value);
-			return true;
-	}*/
-      	return false;
+
+		return false;
     }
 
 }
