@@ -32,12 +32,9 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 	private static final boolean DEBUG = false;
 	private static final String TAG = "LePref";
 	private static final String ENABLE_QC_KEY = "qc_setting";
-	//private static final String ENABLE_BATTERY_MODE = "battery_mode";
 	private static final String QC_SYSTEM_PROPERTY = "persist.sys.le_fast_chrg_enable";
-	//private static final String BATTERY_SYSTEM_PROPERTY = "persist.battery.save";
 
 	private SwitchPreference mEnableQC;
-	//private SwitchPreference mBatterySave;
 
     private Context mContext;
     private SharedPreferences mPreferences;
@@ -51,20 +48,12 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
         mEnableQC = (SwitchPreference) findPreference(ENABLE_QC_KEY);
         mEnableQC.setChecked(SystemProperties.getBoolean(QC_SYSTEM_PROPERTY, false));
         mEnableQC.setOnPreferenceChangeListener(this);
-
-		/*mBatterySave = (SwitchPreference) findPreference(ENABLE_BATTERY_MODE);
-		mBatterySave.setChecked(SystemProperties.getBoolean(BATTERY_SYSTEM_PROPERTY, true));
-		mBatterySave.setOnPreferenceChangeListener(this);*/
 	}
 	
 	// Control Quick Charge
     private void setEnableQC(boolean value) {
 		SystemProperties.set(QC_SYSTEM_PROPERTY, value?"1":"0");
     }
-
-	/*private void setBatterySave(boolean value) {
-		SystemProperties.set(BATTERY_SYSTEM_PROPERTY, value?"1":"0");
-	}*/
 
     @Override
     protected void onResume() {
@@ -91,13 +80,6 @@ public class LePrefSettings extends PreferenceActivity implements OnPreferenceCh
 			setEnableQC(value);
 			return true;
 		}
-
-		/*if (ENABLE_BATTERY_MODE.equals(key)) {
-			value = (Boolean) newValue;
-			mBatterySave.setChecked(value);
-			setBatterySave(value);
-			return true;
-		}*/
 
 		return false;
     }
