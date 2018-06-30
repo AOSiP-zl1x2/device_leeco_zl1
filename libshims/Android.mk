@@ -19,13 +19,9 @@ include $(CLEAR_VARS)
 LOCAL_SHARED_LIBRARIES := \
     liblog
 
-LOCAL_SRC_FILES := fakeprint/fakeprint.cpp
-
 LOCAL_SRC_FILES := fakelogprint/fakelogprint.cpp
 
 LOCAL_MODULE := fakelogprint
-
-LOCAL_MODULE := fakelg
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 
